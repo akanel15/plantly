@@ -1,11 +1,14 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, View } from "react-native";
 import { theme } from "@/theme";
+import { useUserStore } from "@/store/userStore";
 
 export default function Profile() {
+  const toggleHasOnboarded = useUserStore((store) => store.toggleHadOnboarded);
+
   return (
     <View style={styles.container}>
-      <Text>Profile Page</Text>
+      <Button title="Back to onboarding" onPress={toggleHasOnboarded}></Button>
       <StatusBar style="auto" />
     </View>
   );
