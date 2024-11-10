@@ -29,9 +29,22 @@
     },
     "plugins": [
       "expo-router",
-      ["expo-font",
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "node_modules/@expo-google-fonts/caveat/Caveat_400Regular.ttf"
+          ]
+        }
+      ],
+      ["expo-quick-actions",
       {
-        "fonts": ["node_modules/@expo-google-fonts/caveat/Caveat_400Regular.ttf"]
+        "androidIcons": {
+          "leaf": {
+            "foregroundImage": "./assets/leaf.png",
+            "backgroundColor": "#ffffff"
+          }
+        }
       }]
     ]
   }
