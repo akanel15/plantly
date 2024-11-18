@@ -36,13 +36,15 @@ export const usePlantStore = create(
         const savedImageUri =
           FileSystem.documentDirectory +
           `${new Date().getTime()}-${imageUri?.split("/").slice(-1)[0]}`;
+
         if (imageUri) {
           await FileSystem.copyAsync({
             from: imageUri,
             to: savedImageUri,
           });
         }
-        set((state) => {
+
+        return set((state) => {
           return {
             ...state,
             nextId: state.nextId + 1,
@@ -59,7 +61,7 @@ export const usePlantStore = create(
         });
       },
       removePlant: (plantId: string) => {
-        set((state) => {
+        return set((state) => {
           return {
             ...state,
             plants: state.plants.filter((plant) => plant.id !== plantId),
@@ -67,7 +69,7 @@ export const usePlantStore = create(
         });
       },
       waterPlant: (plantId: string) => {
-        set((state) => {
+        return set((state) => {
           return {
             ...state,
             plants: state.plants.map((plant) => {
